@@ -7,6 +7,7 @@ import argparse
 import os
 import subprocess
 import re
+from contrats import contract
 
 
 # ==== Arguments ====
