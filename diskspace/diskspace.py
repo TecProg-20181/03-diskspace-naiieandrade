@@ -39,7 +39,7 @@ args = parser.parse_args()
 def subprocess_check_output(command):
     return subprocess.check_output(command.strip().split(' '))
 
-
+@contract(blocks='int,>0')
 def bytes_to_readable(blocks):
     byts = blocks * 512
     readable_bytes = byts
@@ -72,6 +72,7 @@ def print_tree(file_tree, file_tree_node, path, largest_size, total_size,
                        total_size, depth + 1)
 
 
+@contract(directory=str, depth=int, order=bool)
 def show_space_list(directory='.', depth=-1, order=True):
     abs_directory = os.path.abspath(directory)
 
